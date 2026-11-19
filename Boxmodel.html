@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --verde: #0F172A;
+            --marino: #1E1B4B;
+            --lila: #FFF1EC;
+            --borde: #FFD3C8
+        }
+
+        body {
+            font-family: 'Poppins', system-ui, 'Segoe UI', Roboto, sans-serif;
+            color: #2b2b3a;
+            background: #FFF8F0
+        }
+
+        /* NAVEGACIÓN */
+        .caja1 {
+            min-height: 100px;
+            background: #1F2937;
+            padding: 15px;
+            border-bottom: 3px solid #FF6B5B;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, .45);
+            border-radius: 8px;
+            padding: 6px 14px;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .btn-nav i {
+            font-size: 1.1rem;
+        }
+
+        .btn-nav:hover,
+        .btn-nav.activo {
+            background: #fff;
+            border-color: #fff;
+            color: #1F2937;
+        }
+
+        .btn-nav:focus-visible {
+            outline: 3px solid #FFB84D;
+            outline-offset: 2px;
+        }
+
+        footer {
+            background: var(--verde);
+            color: #fff;
+            text-align: center;
+            padding: 18px;
+            margin-top: 40px
+        }
+
+        /* Artículo */
+        .articulo {
+            max-width: 900px;
+            margin: 32px auto;
+            padding: 40px 32px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, .08)
+        }
+
+        .articulo h1 {
+            color: var(--marino);
+            font-weight: 800;
+            letter-spacing: -.02em;
+            font-size: 2.2rem;
+            margin-bottom: 20px
+        }
+
+        .articulo p {
+            font-size: 1.05rem;
+            line-height: 1.75
+        }
+
+        .articulo h2 {
+            color: var(--marino);
+            font-weight: 800;
+            font-size: 1.7rem;
+            margin: 0 0 12px
+        }
+
+        .linea {
+            width: 48px;
+            border-top: 5px solid #FF6B5B;
+            border-radius: 5px;
+            margin: 40px 0 14px
+        }
+
+        .capa {
+            background: var(--lila);
+            border: 1px solid var(--borde);
+            border-radius: 18px;
+            padding: 18px 20px;
+            height: 100%;
+            transition: .25s
+        }
+
+        .capa:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .1)
+        }
+
+        .row>div:nth-child(2) .capa {
+            background: #E9F9F4;
+            border-color: #BDEBDD
+        }
+
+        .row>div:nth-child(3) .capa {
+            background: #EEF0FF;
+            border-color: #CDD1FA
+        }
+
+        .row>div:nth-child(4) .capa {
+            background: #FFF6E0;
+            border-color: #FFE3A3
+        }
+
+        .capa h3 {
+            color: var(--marino);
+            font-weight: 700;
+            font-size: 1.05rem;
+            margin-bottom: 6px
+        }
+
+        .capa p {
+            font-size: .95rem;
+            margin: 0;
+            line-height: 1.5
+        }
+
+        /* Diagrama */
+        .bm {
+            margin: 40px auto 0;
+            max-width: 360px;
+            background: #FFD9C7;
+            padding: 24px;
+            border: 2px dashed #FF6B5B;
+            border-radius: 20px;
+            text-align: center
+        }
+
+        .bm div {
+            padding: 20px
+        }
+
+        .b {
+            background: #FFE5A8;
+            border: 3px solid #FFB84D;
+            border-radius: 10px
+        }
+
+        .p {
+            background: #C9F2E4;
+            border-radius: 10px
+        }
+
+        .c {
+            background: #0E7C86;
+            padding: 22px;
+            color: #fff;
+            font-weight: 600;
+            border-radius: 8px
+        }
+
+        .bm small {
+            display: block;
+            font-weight: 600
+        }
+
+        @media (max-width:575.98px) {
+            .btn-nav {
+                width: 100%;
+                justify-content: center
+            }
+
+            .articulo {
+                padding: 28px 18px;
+                margin: 20px 12px
+            }
+
+            .articulo h1 {
+                font-size: 1.7rem
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="caja1 d-flex flex-wrap align-items-center justify-content-center gap-2" aria-label="Principal">
+        <a class="btn-nav" href="estructura.html">Estructura y sintaxis <i class="bi bi-code-slash"></i></a>
+        <a class="btn-nav" href="especificidad.html"><span>Niveles de especificidad</span> <i
+                class="bi bi-layers"></i></a>
+        <a class="btn-nav" href="pseudo.html"><span>Pseudo Clases y Pseudo Elementos</span> <i
+                class="bi bi-cursor"></i></a>
+        <a class="btn-nav activo" href="Boxmodel.html"><span>Box Model</span> <i class="bi bi-bounding-box"></i></a>
+    </nav>
+
+    <main class="articulo">
+        <h1>Box Model en CSS: guía completa para frontend</h1>
+        <p>Hoy vamos a hablar del <b>Box Model en CSS</b>, una de las bases fundamentales para entender cómo se
+            comportan los elementos en una página web.</p>
+        <p>Si alguna vez te has preguntado por qué un botón no se alinea como esperas o por qué un div ocupa más espacio
+            del que debería, el Box Model tiene la respuesta. Veremos cómo funciona y cómo usarlo para construir diseños
+            más precisos y profesionales.</p>
+        <p>Vamos a desglosarlo paso a paso para que lo domines.</p>
+
+        <div class="linea"></div>
+        <h2>¿Qué es el Box Model?</h2>
+        <p>Imagina que cada elemento HTML de tu página web es una <b>caja</b>. Pero esta caja no es solo el contenido
+            que ves: en realidad está compuesta por varias capas que definen su tamaño y su espacio en la página. Estas
+            capas son:</p>
+
+        <div class="row g-3">
+            <div class="col-12 col-md-6">
+                <div class="capa">
+                    <h3>1. Content (contenido)</h3>
+                    <p>Es el corazón del elemento, donde se muestra el texto, las imágenes u otros medios.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="capa">
+                    <h3>2. Padding (relleno)</h3>
+                    <p>El espacio entre el contenido y el borde.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="capa">
+                    <h3>3. Border (borde)</h3>
+                    <p>El límite que rodea el padding y el contenido.</p>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="capa">
+                    <h3>4. Margin (margen)</h3>
+                    <p>El espacio exterior que separa el elemento de otros elementos de la página.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bm"><small>margin</small>
+            <div class="b"><small>border</small>
+                <div class="p"><small>padding</small>
+                    <div class="c">content</div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

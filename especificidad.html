@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Niveles de especificidad</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --verde: #0F172A;
+            --azul: #312E81;
+            --teal: #FF6B5B
+        }
+
+        body {
+            font-family: 'Poppins', system-ui, 'Segoe UI', Roboto, sans-serif;
+            color: #1E2235;
+            background: #FFF8F0
+        }
+
+        /* NAVEGACIÓN */
+        .caja1 {
+            min-height: 100px;
+            background: #1F2937;
+            padding: 15px;
+            border-bottom: 3px solid #FF6B5B;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, .45);
+            border-radius: 8px;
+            padding: 6px 14px;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .btn-nav i {
+            font-size: 1.1rem;
+        }
+
+        .btn-nav:hover,
+        .btn-nav.activo {
+            background: #fff;
+            border-color: #fff;
+            color: #1F2937;
+        }
+
+        .btn-nav:focus-visible {
+            outline: 3px solid #FFB84D;
+            outline-offset: 2px;
+        }
+
+        .hero {
+            background: #312E81;
+            color: #fff;
+            padding: 48px 15px;
+            text-align: center
+        }
+
+        .hero h1 {
+            font-weight: 800;
+            letter-spacing: -.02em
+        }
+
+        .hero p {
+            max-width: 680px;
+            margin: 8px auto 0;
+            opacity: .92;
+            line-height: 1.7
+        }
+
+        .contenido {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 32px 15px
+        }
+
+        .contenido h2 {
+            color: var(--azul);
+            margin-top: 40px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-left: 6px solid #FF6B5B;
+            padding-left: 12px
+        }
+
+        .contenido p {
+            line-height: 1.75
+        }
+
+        .tarjeta {
+            background: #fff;
+            border-left: 5px solid var(--teal);
+            border-radius: 10px;
+            padding: 18px 22px;
+            margin: 14px 0;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .08)
+        }
+
+        pre {
+            background: #0F172A;
+            color: #FDE9D8;
+            padding: 16px 18px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-size: .9rem;
+            border-top: 4px solid #FFB84D
+        }
+
+        code {
+            color: #4338CA
+        }
+
+        pre code {
+            color: inherit
+        }
+
+        .tabla-scroll {
+            overflow-x: auto;
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, .08)
+        }
+
+        table {
+            width: 100%;
+            background: #fff;
+            border-collapse: collapse
+        }
+
+        th {
+            background: var(--azul);
+            color: #fff;
+            font-weight: 600
+        }
+
+        th,
+        td {
+            padding: 12px 14px;
+            border: 1px solid #F0E3D6
+        }
+
+        tr:nth-child(even) td {
+            background: #FFF8F0
+        }
+
+        footer {
+            background: var(--verde);
+            color: #fff;
+            text-align: center;
+            padding: 18px;
+            margin-top: 40px
+        }
+
+        @media (max-width:575.98px) {
+            .btn-nav {
+                width: 100%;
+                justify-content: center
+            }
+
+            .hero {
+                padding: 32px 12px
+            }
+
+            .hero h1 {
+                font-size: 1.6rem
+            }
+        }
+
+        /* Solo de esta página */
+        .infografia {
+            margin: 20px auto;
+            text-align: center
+        }
+
+        .infografia img {
+            max-width: 100%;
+            width: 560px;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .15)
+        }
+
+        .infografia figcaption {
+            margin-top: 10px;
+            font-size: .9rem;
+            color: #6B6F85
+        }
+
+        .demo-p {
+            color: #d63384
+        }
+
+        p.demo-p {
+            color: #198754
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="caja1 d-flex flex-wrap align-items-center justify-content-center gap-2" aria-label="Principal">
+        <a class="btn-nav" href="estructura.html">Estructura y sintaxis <i class="bi bi-code-slash"></i></a>
+        <a class="btn-nav activo" href="especificidad.html"><span>Niveles de especificidad</span> <i
+                class="bi bi-layers"></i></a>
+        <a class="btn-nav" href="pseudo.html"><span>Pseudo Clases y Pseudo Elementos</span> <i
+                class="bi bi-cursor"></i></a>
+        <a class="btn-nav" href="Boxmodel.html"><span>Box Model</span> <i class="bi bi-bounding-box"></i></a>
+    </nav>
+    <header class="hero">
+        <h1>Niveles de especificidad</h1>
+        <p>Cuando dos reglas CSS chocan, el navegador elige la que tenga mayor especificidad, no la que esté más abajo.
+        </p>
+    </header>
+    <main class="contenido">
+        <h2>¿Qué es la especificidad?</h2>
+        <p>Un mismo elemento puede recibir varias reglas CSS que cambian la misma propiedad, por ejemplo dos colores
+            distintos para un mismo párrafo. La especificidad es el sistema con el que el navegador decide cuál regla
+            gana. Cada selector tiene un valor de prioridad, y el valor más alto se aplica.</p>
+
+        <h2>Valores de prioridad</h2>
+        <figure class="infografia">
+            <img src="img/especificidad.png"
+                alt="Infografía de especificidad en CSS con los valores de prioridad de los selectores">
+            <figcaption>Valores de prioridad de los selectores</figcaption>
+        </figure>
+
+        <h2>Tabla de pesos</h2>
+        <p>El valor se escribe con 5 números, de mayor a menor importancia: <b>!important, estilo en línea, id, clase y
+                elemento</b>.</p>
+        <div class="tabla-scroll">
+            <table>
+                <tr>
+                    <th>Tipo de selector</th>
+                    <th>Ejemplo</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td>!important</td>
+                    <td><code>color: red !important;</code></td>
+                    <td>1, 0, 0, 0, 0</td>
+                </tr>
+                <tr>
+                    <td>Estilo en línea</td>
+                    <td><code>&lt;p style="color:red"&gt;</code></td>
+                    <td>0, 1, 0, 0, 0</td>
+                </tr>
+                <tr>
+                    <td>Id</td>
+                    <td><code>#titulo</code></td>
+                    <td>0, 0, 1, 0, 0</td>
+                </tr>
+                <tr>
+                    <td>Clase, pseudo-clase o atributo</td>
+                    <td><code>.caja</code>, <code>:hover</code>, <code>[type="text"]</code></td>
+                    <td>0, 0, 0, 1, 0</td>
+                </tr>
+                <tr>
+                    <td>Elemento o pseudo-elemento</td>
+                    <td><code>p</code>, <code>h1</code>, <code>::before</code></td>
+                    <td>0, 0, 0, 0, 1</td>
+                </tr>
+                <tr>
+                    <td>Selector universal</td>
+                    <td><code>*</code></td>
+                    <td>0, 0, 0, 0, 0</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Cómo se comparan</h2>
+        <div class="tarjeta">Los valores se comparan de izquierda a derecha. Gana el primer número que sea mayor y los
+            demás ya no importan. Por eso 1 id siempre vence a 100 clases: cada columna es independiente y no se suman
+            entre ellas.</div>
+
+        <h2>Ejemplos calculados</h2>
+        <div class="tabla-scroll">
+            <table>
+                <tr>
+                    <th>Selector</th>
+                    <th>Cálculo</th>
+                    <th>Valor</th>
+                </tr>
+                <tr>
+                    <td><code>p</code></td>
+                    <td>1 elemento</td>
+                    <td>0, 0, 0, 0, 1</td>
+                </tr>
+                <tr>
+                    <td><code>p.demo-p</code></td>
+                    <td>1 clase + 1 elemento</td>
+                    <td>0, 0, 0, 1, 1</td>
+                </tr>
+                <tr>
+                    <td><code>nav a:hover</code></td>
+                    <td>1 pseudo-clase + 2 elementos</td>
+                    <td>0, 0, 0, 1, 2</td>
+                </tr>
+                <tr>
+                    <td><code>#demo .demo-p</code></td>
+                    <td>1 id + 1 clase</td>
+                    <td>0, 0, 1, 1, 0</td>
+                </tr>
+            </table>
+        </div>
+
+        <h2>Ejemplo en vivo</h2>
+        <pre><code>.demo-p { color: #d63384; }   /* 0, 0, 0, 1, 0 */
+p.demo-p { color: #198754; }  /* 0, 0, 0, 1, 1 → gana */</code></pre>
+        <div class="tarjeta">
+            <p class="demo-p">Este texto es verde porque <code>p.demo-p</code> es más específico que
+                <code>.demo-p</code>.</p>
+        </div>
+
+        <h2>Buenas prácticas</h2>
+        <div class="tarjeta">Usa clases en vez de ids para dar estilo. Evita <code>!important</code> y el estilo en
+            línea. Si dos reglas tienen el mismo valor, gana la que aparece al final del archivo.</div>
+    </main>
+</body>
+
+</html>

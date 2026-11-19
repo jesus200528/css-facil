@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" role="img" aria-label="BEFORE: Contenido antes">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#2ec4b6"/>
+    <stop offset="1" stop-color="#101827"/>
+  </linearGradient>
+  <pattern id="p" width="28" height="28" patternUnits="userSpaceOnUse">
+    <circle cx="2" cy="2" r="1.5" fill="white" opacity=".13"/>
+  </pattern>
+</defs>
+<rect width="600" height="360" fill="url(#g)"/>
+<rect width="600" height="360" fill="url(#p)"/>
+<circle cx="485" cy="80" r="145" fill="white" opacity=".06"/>
+<circle cx="500" cy="310" r="130" fill="white" opacity=".05"/>
+<g transform="translate(390 105) scale(1.45)" opacity=".92"><path d="M15 25h80M15 50h55M15 75h68" stroke="white" stroke-width="8" stroke-linecap="round"/><path d="M8 8l18 17-18 17" fill="none" stroke="white" stroke-width="7"/></g>
+<path d="M38 42h62" stroke="white" stroke-width="5" stroke-linecap="round" opacity=".7"/>
+<text x="38" y="205" fill="white" font-family="Arial, sans-serif" font-size="36" font-weight="700">BEFORE</text>
+<text x="40" y="244" fill="white" opacity=".88" font-family="Arial, sans-serif" font-size="19">Contenido antes</text>
+<text x="40" y="315" fill="white" opacity=".55" font-family="Arial, sans-serif" font-size="13" letter-spacing="3">CSS-FACIL  •  13</text>
+</svg>

@@ -1,0 +1,407 @@
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Clases y Pseudo Elementos</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+        :root {
+            --verde: #0F172A;
+            --ink: #0F172A;
+            --coral: #FF6B5B;
+            --crema: #FFF4E6;
+        }
+
+        body {
+            font-family: 'Poppins', system-ui, 'Segoe UI', Roboto, sans-serif;
+            background: var(--crema);
+            color: var(--ink);
+        }
+
+        /* NAVEGACIÓN */
+        .caja1 {
+            min-height: 100px;
+            background: #1F2937;
+            padding: 15px;
+            border-bottom: 3px solid #FF6B5B;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, .45);
+            border-radius: 8px;
+            padding: 6px 14px;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .btn-nav i {
+            font-size: 1.1rem;
+        }
+
+        .btn-nav:hover,
+        .btn-nav.activo {
+            background: #fff;
+            border-color: #fff;
+            color: #1F2937;
+        }
+
+        .btn-nav:focus-visible {
+            outline: 3px solid #FFB84D;
+            outline-offset: 2px;
+        }
+
+        /* MAQUETA */
+        .imagen-grande {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            margin-top: 12px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #312E81, #FF6B5B);
+        }
+
+        .principal {
+            background: #FFE8D6;
+            padding: 30px 15px;
+            margin-top: 28px;
+            margin-bottom: 28px;
+            border-radius: 16px;
+        }
+
+        .texto {
+            padding: 20px;
+        }
+
+        .texto h1 {
+            font-weight: 800;
+            font-size: 2.2rem;
+            letter-spacing: -.02em;
+        }
+
+        .texto p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #3B3F55;
+        }
+
+        .imagen {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #FF6B5B, #312E81);
+        }
+
+        /* CAJAS */
+        .caja {
+            height: 300px;
+            color: #fff;
+            padding: 18px;
+            font-weight: 700;
+            letter-spacing: .02em;
+            box-shadow: inset 0 0 0 3px var(--crema);
+            transition: .25s;
+
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-blend-mode: multiply;
+        }
+
+        .c5 {
+            background-color: #EF476F;
+            background-image: url('img/caja-5.svg');
+            color: #fff;
+        }
+
+        .c6 {
+            background-color: #F78C6B;
+            background-image: url('img/caja-6.svg');
+            color: #0F172A;
+        }
+
+        .c7 {
+            background-color: #FFD166;
+            background-image: url('img/caja-7.svg');
+            color: #0F172A;
+        }
+
+        .c8 {
+            background-color: #FF9F1C;
+            background-image: url('img/caja-8.svg');
+            color: #0F172A;
+        }
+
+        .c9 {
+            background-color: #E76F51;
+            background-image: url('img/caja-9.svg');
+            color: #fff;
+        }
+
+        .c10 {
+            background-color: #FFB4A2;
+            background-image: url('img/caja-10.svg');
+            color: #0F172A;
+        }
+
+        .c11 {
+            background-color: #06D6A0;
+            background-image: url('img/caja-11.svg');
+            color: #0F172A;
+        }
+
+        .c12 {
+            background-color: #118AB2;
+            background-image: url('img/caja-12.svg');
+            color: #fff;
+        }
+
+        .c13 {
+            background-color: #2EC4B6;
+            background-image: url('img/caja-13.svg');
+            color: #0F172A;
+        }
+
+        .c14 {
+            background-color: #0E7C86;
+            background-image: url('img/caja-14.svg');
+            color: #fff;
+        }
+
+        .c15 {
+            background-color: #8ECAE6;
+            background-image: url('img/caja-15.svg');
+            color: #0F172A;
+        }
+
+        .c16 {
+            background-color: #1D5C8A;
+            background-image: url('img/caja-16.svg');
+            color: #fff;
+        }
+
+        .c17 {
+            background-color: #7B2CBF;
+            background-image: url('img/caja-17.svg');
+            color: #fff;
+        }
+
+        .c18 {
+            background-color: #9D4EDD;
+            background-image: url('img/caja-18.svg');
+            color: #fff;
+        }
+
+        .c19 {
+            background-color: #5A189A;
+            background-image: url('img/caja-19.svg');
+            color: #fff;
+        }
+
+        .c20 {
+            background-color: #3C096C;
+            background-image: url('img/caja-20.svg');
+            color: #fff;
+        }
+
+        .c21 {
+            background-color: #C77DFF;
+            background-image: url('img/caja-21.svg');
+            color: #0F172A;
+        }
+
+        .c22 {
+            background-color: #240046;
+            background-image: url('img/caja-22.svg');
+            color: #fff;
+        }
+
+        /* PSEUDO-CLASES */
+        .caja:hover {
+            transform: scale(1.04);
+            z-index: 2;
+            box-shadow: 0 4px 12px rgba(15, 23, 42, .3);
+            cursor: pointer;
+        }
+
+        .caja:focus-visible {
+            outline: 4px solid #fff;
+            outline-offset: -10px;
+        }
+
+        .caja:active {
+            filter: brightness(.8);
+        }
+
+        .caja:first-child {
+            border-top-left-radius: 12px;
+        }
+
+        .caja:last-child {
+            border-bottom-right-radius: 12px;
+        }
+
+        .caja:nth-child(6n+1)::before {
+            content: "nth-child ";
+            font-size: .8rem;
+            opacity: .8;
+        }
+
+        .caja:nth-child(even) {
+            filter: saturate(.85);
+        }
+
+        /* PSEUDO-ELEMENTOS */
+        .texto h1::before {
+            content: "★ ";
+            color: #FF6B5B;
+        }
+
+        .texto p::first-letter {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #FF6B5B;
+            float: left;
+            line-height: 1;
+            margin-right: 8px;
+        }
+
+        .texto p::first-line {
+            font-weight: 600;
+        }
+
+        .texto p::selection {
+            background: #FF6B5B;
+            color: #fff;
+        }
+
+        /* RESPONSIVE */
+        @media (min-width:576px) and (max-width:1199.98px) {
+            .imagen-contenedor {
+                display: none !important;
+            }
+
+            .texto {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width:575.98px) {
+            .btn-nav {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .texto {
+                flex: 0 0 100%;
+            }
+
+            .texto h1 {
+                font-size: 2rem;
+            }
+
+            .imagen-contenedor {
+                display: block !important;
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+
+            .caja {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <nav class="caja1 d-flex flex-wrap align-items-center justify-content-center gap-2" aria-label="Principal">
+
+                <a class="btn-nav" href="estructura.html">
+                    Estructura y sintaxis <i class="bi bi-code-slash"></i>
+                </a>
+
+                <a class="btn-nav" href="especificidad.html">
+                    <span>Niveles de especificidad</span>
+                    <i class="bi bi-layers"></i>
+                </a>
+
+                <a class="btn-nav activo" href="pseudo.html" aria-current="page">
+                    <span>Pseudo Clases y Pseudo Elementos</span>
+                    <i class="bi bi-cursor"></i>
+                </a>
+
+                <a class="btn-nav" href="Boxmodel.html">
+                    <span>Box Model</span>
+                    <i class="bi bi-bounding-box"></i>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="row">
+            <div class="col-12 p-0">
+                <img src="img/gif.gif" alt="Imagen grande principal" class="imagen-grande">
+            </div>
+        </div>
+
+        <div class="row principal align-items-center">
+
+            <div class="col-12 col-xl-6 texto">
+                <h1>Mi primera maqueta</h1>
+            </div>
+
+            <div class="col-12 col-xl-6 imagen-contenedor">
+                <img src="img/gif.gif" alt="Imagen secundaria" class="imagen">
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-6 col-md-4 col-lg-2 caja c5" tabindex="0">Caja 5</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c6" tabindex="0">Caja 6</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c7" tabindex="0">Caja 7</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c8" tabindex="0">Caja 8</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c9" tabindex="0">Caja 9</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c10" tabindex="0">Caja 10</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c11" tabindex="0">Caja 11</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c12" tabindex="0">Caja 12</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c13" tabindex="0">Caja 13</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c14" tabindex="0">Caja 14</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c15" tabindex="0">Caja 15</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c16" tabindex="0">Caja 16</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c17" tabindex="0">Caja 17</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c18" tabindex="0">Caja 18</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c19" tabindex="0">Caja 19</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c20" tabindex="0">Caja 20</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c21" tabindex="0">Caja 21</div>
+            <div class="col-6 col-md-4 col-lg-2 caja c22" tabindex="0">Caja 22</div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

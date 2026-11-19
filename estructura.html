@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estructura y sintaxis</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Poppins', system-ui, 'Segoe UI', Roboto, sans-serif;
+            background: #0B1020;
+            color: #fff
+        }
+
+        /* NAVEGACIÓN */
+        .caja1 {
+            min-height: 100px;
+            background: #1F2937;
+            padding: 15px;
+            border-bottom: 3px solid #FF6B5B;
+        }
+
+        .btn-nav {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            color: #fff;
+            border: 1.5px solid rgba(255, 255, 255, .45);
+            border-radius: 8px;
+            padding: 6px 14px;
+            text-decoration: none;
+            transition: .2s;
+        }
+
+        .btn-nav i {
+            font-size: 1.1rem;
+        }
+
+        .btn-nav:hover,
+        .btn-nav.activo {
+            background: #fff;
+            border-color: #fff;
+            color: #1F2937;
+        }
+
+        .btn-nav:focus-visible {
+            outline: 3px solid #FFB84D;
+            outline-offset: 2px;
+        }
+
+        .btn-nav {
+            font-size: .92rem
+        }
+
+        /* PANELES CON IMAGEN DE FONDO */
+        .panel {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 28px;
+            color: #fff;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            box-shadow: inset 0 0 0 3px #0B1020;
+            transition: filter .3s
+        }
+
+        .panel:hover {
+            filter: brightness(1.15) saturate(1.1)
+        }
+
+        .panel h2,
+        .panel h3 {
+            font-weight: 700;
+            margin: 0 0 6px
+        }
+
+        .panel h3 {
+            color: #FFB84D
+        }
+
+        .panel p {
+            margin: 0;
+            font-size: .85rem;
+            line-height: 1.5;
+            color: rgba(255, 255, 255, .88)
+        }
+
+        .panel a {
+            color: #fff;
+            text-decoration: none
+        }
+
+        .panel a:hover {
+            text-decoration: underline
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 400px;
+            background-image: linear-gradient(100deg, rgba(11, 16, 32, .92) 0%, rgba(30, 27, 75, .6) 55%, rgba(255, 107, 91, .18) 100%), url(img/hero.jpg);
+            background-color: #1E1B4B;
+            justify-content: center;
+            padding: 40px 32px;
+            border-bottom: 4px solid #FF6B5B
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -.03em;
+            margin-bottom: 12px;
+            color: #fff
+        }
+
+        .hero .sub {
+            font-size: 1.15rem;
+            line-height: 1.6;
+            margin-bottom: 28px;
+            color: #DCE3FF
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            color: #fff
+        }
+
+        .hero .btn {
+            width: max-content;
+            background: #FF6B5B;
+            border: 0;
+            color: #fff;
+            font-weight: 700;
+            border-radius: 8px;
+            padding: 10px 24px;
+            transition: .25s
+        }
+
+        .hero .btn:hover {
+            background: #FF8576;
+            color: #fff
+        }
+
+        /* TARJETAS */
+        .fila2 .panel {
+            min-height: 272px
+        }
+
+        .fila3 .panel {
+            min-height: 208px
+        }
+
+        .icono {
+            font-size: 2.2rem;
+            line-height: 1;
+            margin-bottom: 6px;
+            color: #FFB84D
+        }
+
+        .html {
+            background-image: linear-gradient(0deg, rgba(11, 16, 32, .88), rgba(11, 16, 32, .08)), url(img/html.jpg);
+            background-color: #0b2447
+        }
+
+        .css {
+            background-image: linear-gradient(0deg, rgba(11, 16, 32, .88), rgba(11, 16, 32, .08)), url(img/css.jpg);
+            background-color: #2563a8
+        }
+
+        .bootstrap {
+            background-image: linear-gradient(0deg, rgba(11, 16, 32, .88), rgba(11, 16, 32, .08)), url(img/bootstrap.jpg);
+            background-color: #6f42c1
+        }
+
+        .nav-rapida {
+            background-image: linear-gradient(0deg, rgba(11, 16, 32, .8), rgba(11, 16, 32, .2)), url(img/navegacion.jpg);
+            background-color: #0f4c75
+        }
+
+        .alumnos {
+            background-image: linear-gradient(0deg, rgba(11, 16, 32, .8), rgba(11, 16, 32, .25)), url(img/alumnos.jpg);
+            background-color: #7a5c3a;
+            align-items: center;
+            text-align: center
+        }
+
+        .practico {
+            background-image: linear-gradient(0deg, rgba(11, 16, 32, .7), rgba(11, 16, 32, .45)), url(img/practico.jpg);
+            background-color: #555;
+            align-items: center;
+            text-align: center
+        }
+
+        .acceso {
+            background-image: linear-gradient(0deg, rgba(11, 16, 32, .8), rgba(11, 16, 32, .25)), url(img/acceso.jpg);
+            background-color: #12263a;
+            align-items: center;
+            text-align: center
+        }
+
+        .contacto {
+            background-image: linear-gradient(0deg, rgba(11, 16, 32, .85), rgba(11, 16, 32, .2)), url(img/contacto.jpg);
+            background-color: #444
+        }
+
+        .dato {
+            font-size: 1.9rem;
+            font-weight: 800;
+            line-height: 1;
+            color: #FFB84D
+        }
+
+        .links a {
+            display: block;
+            font-size: 1.05rem;
+            margin-top: 8px
+        }
+
+        /* RESPONSIVE */
+        @media (min-width:576px) and (max-width:1199.98px) {
+            .hero h1 {
+                font-size: 3.2rem
+            }
+        }
+
+        @media (max-width:575.98px) {
+            .btn-nav {
+                width: 100%;
+                justify-content: center
+            }
+
+            .hero {
+                min-height: 360px;
+                padding: 28px 20px
+            }
+
+            .hero h1 {
+                font-size: 2.4rem
+            }
+
+            .fila2 .panel {
+                min-height: 220px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid p-0">
+
+        <nav class="caja1 d-flex flex-wrap align-items-center justify-content-center gap-2" aria-label="Principal">
+            <a class="btn-nav activo" href="estructura.html">Estructura y sintaxis <i class="bi bi-code-slash"></i></a>
+            <a class="btn-nav" href="especificidad.html"><span>Niveles de especificidad</span> <i
+                    class="bi bi-layers"></i></a>
+            <a class="btn-nav" href="pseudo.html"><span>Pseudo Clases y Pseudo Elementos</span> <i
+                    class="bi bi-cursor"></i></a>
+            <a class="btn-nav" href="Boxmodel.html"><span>Box Model</span> <i class="bi bi-bounding-box"></i></a>
+        </nav>
+
+        <header class="panel hero">
+            <h1>CSS FÁCIL</h1>
+            <p class="sub">Educativo y Visual - SENA Cenigraf ADSO<br>Bogotá - Colombia</p>
+            <h2><i class="bi bi-mortarboard-fill"></i> Aprende Desarrollo Web</h2>
+            <p class="mb-3">Domina HTML5, CSS3 y Bootstrap creando maquetas profesionales.</p>
+            <a class="btn btn-primary" href="#cursos"><i class="bi bi-play-circle"></i> Ver Cursos</a>
+        </header>
+
+        <section class="row g-0 fila2" id="cursos">
+            <article class="col-12 col-md-4 panel html">
+                <i class="bi bi-filetype-html icono"></i>
+                <h3>Estructura HTML</h3>
+                <p>Organiza tu código semántico para mejorar el posicionamiento y la accesibilidad.</p>
+            </article>
+            <article class="col-12 col-md-4 panel css">
+                <i class="bi bi-filetype-css icono"></i>
+                <h3>Estilos CSS</h3>
+                <p>Aplica diseños atractivos, colores, tipografías y efectos visuales a tus componentes.</p>
+            </article>
+            <article class="col-12 col-md-4 panel bootstrap">
+                <i class="bi bi-bootstrap-fill icono"></i>
+                <h3>Bootstrap 5</h3>
+                <p>Acelera tu desarrollo usando el sistema de rejilla y componentes prediseñados.</p>
+            </article>
+        </section>
+
+        <section class="row g-0 fila3">
+            <div class="col-12 col-sm-6 col-lg-3 panel nav-rapida">
+                <h3><i class="bi bi-compass"></i> Navegación Rápida</h3>
+                <div class="links">
+                    <a href="https://developer.mozilla.org/es/docs/Web/CSS" target="_blank" rel="noopener"><i
+                            class="bi bi-book"></i> Documentación</a>
+                    <a href="pseudo.html"><i class="bi bi-laptop"></i> Ejemplos</a>
+                </div>
+            </div>
+            <div class="col-6 col-sm-6 col-lg-2 panel alumnos">
+                <i class="bi bi-people-fill icono"></i>
+                <div class="dato">+500</div>
+                <p>Alumnos registrados</p>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 panel practico">
+                <div class="dato">100%</div>
+                <p>Práctico</p>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-2 panel acceso">
+                <i class="bi bi-infinity icono"></i>
+                <div class="dato">24/7</div>
+                <p>Acceso ilimitado</p>
+            </div>
+            <div class="col-6 col-sm-4 col-lg-3 panel contacto">
+                <h3><i class="bi bi-person-lines-fill"></i> Contacto</h3>
+                <p><i class="bi bi-envelope"></i> contacto@ejemplo.com</p>
+                <p class="mt-2" style="font-size:.75rem">© 2026 Mi Maqueta</p>
+            </div>
+        </section>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
